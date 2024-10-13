@@ -27,6 +27,7 @@ namespace DSL.lib
             {"str", new ConvertToStringFunction() },
             {"size", new SizeArrayFunction() },
             {"add", new AddArrayFunction() }
+            {"remove", new RemoveArrayFunction() }
         };
 
         public static bool IsExists(string key)

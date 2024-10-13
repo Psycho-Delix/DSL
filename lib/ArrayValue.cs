@@ -30,7 +30,28 @@ namespace DSL.lib
             // Обновляем ссылку на массив
             _elements = newElements;
         }
+        // ^^^ addapted from `Add`
+        public void Remove(int index)
+        {
+            if (index < 0 || index >= _elements.Length)
+            {
+                throw new IndexOutOfRangeException("Неверный индекс!!!");
+            }
 
+            Value[] newElements = new Value[_elements.Length - 1];
+
+            if (index > 0)
+            {
+                Array.Copy(_elements, 0, newElements, 0, index);
+            }
+
+            if (index < _elements.Length - 1)
+            {
+                Array.Copy(_elements, index + 1, newElements, index, _elements.Length - index - 1);
+            }
+
+            _elements = newElements;
+        }
 
         public int GetSize()
         {
